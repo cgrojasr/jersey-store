@@ -1,0 +1,16 @@
+<div class="row">
+    <img [src]="product.image" alt="" width="200">
+</div>
+<div class="row">
+  {{product.league | uppercase}}
+</div>
+<div class="row">
+  {{product.description | slice:0:30}}
+</div>
+<div class="row">
+  {{product.price | dscto: 10 | currency: 'S/'}}
+</div>
+<div class="row">
+    <button class="btn btn-primary" (click)="addProductToCart() ">Add Cart</button>
+</div>
+<br/>
