@@ -9,6 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { DsctoPipe } from './dscto.pipe';
 import { FormsModule } from '@angular/forms';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { DemoComponent } from './demo/demo.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     GridprodsComponent,
     FooterComponent,
     DsctoPipe,
-    SearchbarComponent
+    SearchbarComponent,
+    DemoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

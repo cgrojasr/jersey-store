@@ -1,0 +1,30 @@
+<!-- <input type="text" [(ngModel)]="title">
+    {{title}}
+
+    <div [ngSwitch]="title">
+      <div *ngSwitchCase="'Peru'">
+        {{ 'Estamos en Peru causa' }}
+      </div>
+      <div *ngSwitchCase="'Chile'">
+        {{ 'Estamos en Chile po' }}
+      </div>
+      <div *ngSwitchCase="'Mexico'">
+        {{ 'Estamos en Mexico carnal' }}
+      </div>
+      <div *ngSwitchDefault>
+        Estamos en alguna parte del mundo
+      </div>
+    </div> -->
+
+    <!--<div *ngIf="title === 'Peru'">
+      Si me ves es porque el ngIf es verdadero
+    </div> -->
+
+    <!-- <div *ngFor = "let country of countries; index as hola">
+      {{hola + 1}}{{ country }}
+    </div> -->
+    <div *ngFor = "let country of countries">
+        <app-footer [country]="country" class="row" (clickedButton)="getId($event)">
+        </app-footer>
+    </div>
+    <app-searchbar></app-searchbar>
