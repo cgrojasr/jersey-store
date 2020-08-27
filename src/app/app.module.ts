@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { DemoComponent } from './demo/demo.component';
 import { HomeComponent } from './home/home.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     DsctoPipe,
     SearchbarComponent,
     DemoComponent,
-    HomeComponent
+    HomeComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
