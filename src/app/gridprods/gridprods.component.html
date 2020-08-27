@@ -1,18 +1,20 @@
-<div class="row">
-  <a href="product">
-    <img [src]="product.image" alt="" width="200">
-  </a>
+<div class="col-4" *ngFor="let product of products">
+  <div class="row">
+    <a [routerLink]="['/product', product.id]">
+      <img [src]="product.image" alt="" width="200">
+    </a>
+  </div>
+  <div class="row">
+    {{product.league | uppercase}}
+  </div>
+  <div class="row">
+    {{product.description | slice:0:30}}
+  </div>
+  <div class="row">
+    {{product.price | dscto: 10 | currency: 'S/'}}
+  </div>
+  <div class="row">
+      <button class="btn btn-primary">Add Cart</button>
+  </div>
+  <br/>
 </div>
-<div class="row">
-  {{product.league | uppercase}}
-</div>
-<div class="row">
-  {{product.description | slice:0:30}}
-</div>
-<div class="row">
-  {{product.price | dscto: 10 | currency: 'S/'}}
-</div>
-<div class="row">
-    <button class="btn btn-primary" (click)="addProductToCart() ">Add Cart</button>
-</div>
-<br/>

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params} from '@angular/router'; //Tipados y Injeccion de dependencia
+
+import { ProductService } from './../product.service';
+import { Product } from './../model/product.model';
 
 @Component({
   selector: 'app-product',
@@ -7,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  product: Product;
+
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService
+  ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.product = this.productService.getProductById(params.id);
+    }); //sucribe permite escuchar los cambios
   }
 
 }
