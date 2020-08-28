@@ -1,34 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { GridprodsComponent } from './gridprods/gridprods.component';
-import { FooterComponent } from './footer/footer.component';
-import { DsctoPipe } from './dscto.pipe';
-import { FormsModule } from '@angular/forms';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { DemoComponent } from './demo/demo.component';
-import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
+import { LayoutComponent } from './layout/layout.component';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    GridprodsComponent,
-    FooterComponent,
-    DsctoPipe,
     SearchbarComponent,
     DemoComponent,
-    HomeComponent,
-    ProductComponent
+    ProductComponent,
+    LayoutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule,
+    CoreModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

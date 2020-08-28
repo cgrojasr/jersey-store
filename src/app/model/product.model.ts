@@ -1,7 +1,16 @@
 export interface Product {
-    id: number;
+    id: string;
     image: string;
-    description: string;
+    title: string;
     price: number;
-    league: string;
+    description: string;
 }
+
+// export interface Product {
+//     id: number;
+//     image: string;
+//     description: string;
+//     price: number;
+//     league: string;
+// }
+
