@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'; //Importar utilizar los parametros que se envian atraves de la URL
 
-import { Country } from '../model/country.model';
+import { Product } from '../model/product.model';
+import { ProductService } from '../core/services/products/product.service';
 
 @Component({
   selector: 'app-demo',
@@ -8,37 +10,23 @@ import { Country } from '../model/country.model';
   styleUrls: ['./demo.component.scss']
 })
 export class DemoComponent implements OnInit {
+  products: Product[] = [];
 
-  countries: Country[] = [
-    {
-      id: 1,
-      name: 'Peru',
-      capital: 'Lima',
-      currency: 'Nuevo Sol',
-      habitantes: 30
-    },
-    {
-      id: 2,
-      name: 'Chile',
-      capital: 'Santiago',
-      currency: 'Peso Chileno',
-      habitantes: 20
-    },
-    {
-      id: 3,
-      name: 'Mexico',
-      capital: 'CDMX',
-      currency: 'Peso Mexicano',
-      habitantes: 130
-    },
-  ];
-
-  getId(id: number): void{
-    console.log('Estamos en el pais con ID:' + id.toString());
-  }
-
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService
+  ) { }
 
   ngOnInit(): void {
+    this.fetchProducts();
+  }
+
+  fetchProducts(): void{
+    console.log('Estoy en el fetch');
+    this.productService.getAllProducts().subscribe(
+      productsResponse => {
+        this.products = productsResponse
+      }
+    );
   }
 }

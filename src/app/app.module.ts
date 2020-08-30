@@ -12,6 +12,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { ContactComponent } from './contact/contact.component';
+import { DemoDetailsComponent } from './demo-details/demo-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ContactComponent } from './contact/contact.component';
     DemoComponent,
     ProductComponent,
     LayoutComponent,
-    ContactComponent
+    ContactComponent,
+    DemoDetailsComponent
   ],
   imports: [
     BrowserModule,

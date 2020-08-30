@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { Product } from '../../../model/product.model';
 
+import { environment } from '../../../../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -82,12 +84,20 @@ export class ProductService {
   ) { }
 
   getAllProducts(): any {
-    return this.http.get<Product[]>('https://platzi-store.herokuapp.com/products');
+    return this.http.get<Product[]>(environment.url_api + '/products');
     // return this.products;
    }
 
    getProductById(id: string): any {
-    return this.http.get<Product>(`https://platzi-store.herokuapp.com/products/${id}`);
+    return this.http.get<Product>(`${environment.url_api}/products/${id}`);
      //return this.products.find(item => id === item.id.toString());
+   }
+
+   addProdut(item: Product): any {
+    return this.http.post(`${environment.url_api}/products`, item);
+   }
+
+   updateProductById(id: string, itemChange: Partial<Product>): any {
+    return this.http.put(`${environment.url_api}/products/${id}`, itemChange);
    }
 }

@@ -1,13 +1,22 @@
-<div>
-    {{product.id}}
-</div>
-<div>
-    {{product.description}}
-</div>
-<div>
-    {{product.image}}
-</div>
-<div>
-    <!-- {{product.league}} -->
-    {{product.title}}
+<div *ngIf="product">
+    <div>
+        {{product.id}}
+    </div>
+    <div>
+        {{product.description}}
+    </div>
+    <div>
+        <img [src]="product.image" alt="" width="400">
+        <!-- {{product.image}} -->
+    </div>
+    <div>
+        <!-- {{product.league}} -->
+        {{product.title}}
+    </div>
+    <div>
+        <button (click)="addProduct()">Add New Item</button>
+    </div>
+    <div>
+        <button (click)="updateProduct()">Update Item</button>
+    </div>
 </div>

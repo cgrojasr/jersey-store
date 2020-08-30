@@ -3,6 +3,7 @@ import { ActivatedRoute, Params} from '@angular/router'; //Tipados y Injeccion d
 
 import { ProductService } from '../core/services/products/product.service';
 import { Product } from './../model/product.model';
+import { FnParam } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-product',
@@ -20,8 +21,40 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.product = this.productService.getProductById(params.id);
+      const id = params.id;
+      //this.product = this.productService.getProductById(params.id);
+      this.fetchProduct(id);
     }); //sucribe permite escuchar los cambios
   }
 
+  fetchProduct(id: string) {
+    this.productService.getProductById(id).subscribe(response => {
+      console.log(response);
+      this.product = response;
+    });
+  }
+
+  addProduct(){
+    const item: Product = {
+      id: 'cr4',
+      description: 'Lyon Jersey 19/20',
+      title: 'Lyon',
+      image: 'assets/images/OL_19_20.jpg',
+      price: 1299
+    };
+    this.productService.addProdut(item).subscribe(response => {
+      console.log(response);
+      this.product = response;
+    });
+  }
+
+  updateProduct(id: string){
+    const item: Partial<Product> = {
+      price: 100
+    };
+    this.productService.updateProductById(this.product.id, item).subscribe(response => {
+      console.log(response);
+      this.product = response;
+    });
+  }
 }
