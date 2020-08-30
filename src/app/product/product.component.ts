@@ -22,6 +22,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       const id = params.id;
+      //console.log(`Estoy en el articulo con codigo ${params.id}`);
       //this.product = this.productService.getProductById(params.id);
       this.fetchProduct(id);
     }); //sucribe permite escuchar los cambios
@@ -29,7 +30,7 @@ export class ProductComponent implements OnInit {
 
   fetchProduct(id: string) {
     this.productService.getProductById(id).subscribe(response => {
-      console.log(response);
+      //console.log(response);
       this.product = response;
     });
   }

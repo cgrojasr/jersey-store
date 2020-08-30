@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Product } from '../../../model/product.model';
 
@@ -77,26 +76,30 @@ export class ProductService {
   //   },
   // ];
 
-
+  // enviar header al servicio
 
   constructor(
     private http: HttpClient
   ) { }
 
+  //Metodo de consulta general 
   getAllProducts(): any {
     return this.http.get<Product[]>(environment.url_api + '/products');
     // return this.products;
    }
 
+   //Metodo de consulta por ID
    getProductById(id: string): any {
     return this.http.get<Product>(`${environment.url_api}/products/${id}`);
      //return this.products.find(item => id === item.id.toString());
    }
 
+   //Metodo de insercion 
    addProdut(item: Product): any {
     return this.http.post(`${environment.url_api}/products`, item);
    }
 
+   //Metodo de actualizacion
    updateProductById(id: string, itemChange: Partial<Product>): any {
     return this.http.put(`${environment.url_api}/products/${id}`, itemChange);
    }
