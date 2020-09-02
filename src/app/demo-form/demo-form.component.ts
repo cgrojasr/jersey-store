@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { ProductService } from '../core/services/products/product.service';
 
 @Component({
   selector: 'app-demo-form',
@@ -11,15 +14,29 @@ export class DemoFormComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
-  ) { 
+    private formBuilder: FormBuilder,
+    private productService: ProductService,
+    private router: Router
+  ) {
     this.buildForm();
   }
 
   ngOnInit(): void {
   }
 
-  private buildForm() {
+  saveData(event: Event): void {
+    event.preventDefault(); //esto controla las rendiraziones despues del submit 
+    if (this.form.valid) {
+      const product = this.form.value;
+      this.productService.addProdut(product).subscribe((response) => {
+        console.log(response);
+        this.router.navigate(['demo']);
+      });
+    }
+    console.log(this.form.value);
+  }
+
+  private buildForm(): void {
     this.form = this.formBuilder.group(
       {
         id: ['', [Validators.required]],
@@ -30,5 +47,4 @@ export class DemoFormComponent implements OnInit {
       }
     );
   }
-
 }

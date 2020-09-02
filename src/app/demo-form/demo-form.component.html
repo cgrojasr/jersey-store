@@ -1,40 +1,40 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="saveData($event)">
     <div class="container">
-        <div class="row">
+        <div class="row mb-3">
             <div class="col-3">
                 ID
             </div>
             <div class="col-4">
-                <input type="text" formControlName="id" class="form-control">
+                <input type="text" formControlName="id" class="form-control" placeholder="ID">
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-3">
             <div class="col-3">
                 Titulo
             </div>
             <div class="col-4">
-                <input type="text" formControlName="title" class="form-control">
+                <input type="text" formControlName="title" class="form-control" placeholder="Titulo">
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-3">
             <div class="col-3">
                 Descripcion
             </div>
             <div class="col-4">
-                <input type="text" formControlName="description" class="form-control">
+                <textarea formControlName="description" class="form-control" placeholder="Descripcion"></textarea>
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-3">
             <div class="col-3">
                 Precio
             </div>
             <div class="col-4">
-                <input type="number" formControlName="price" class="form-control">
+                <input type="number" formControlName="price" class="form-control" placeholder="Precio">
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-3">
             <div class="col-2 offset-5">
-                <button class="btn btn-primary">Save</button>
+                <button class="btn btn-primary" type="submit">Save</button>
             </div>
         </div>
     </div>
