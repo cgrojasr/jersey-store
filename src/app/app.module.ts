@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { ContactComponent } from './contact/contact.component';
 import { DemoDetailsComponent } from './demo-details/demo-details.component';
+import { DemoFormComponent } from './demo-form/demo-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { DemoDetailsComponent } from './demo-details/demo-details.component';
     ProductComponent,
     LayoutComponent,
     ContactComponent,
-    DemoDetailsComponent
+    DemoDetailsComponent,
+    DemoFormComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { DemoDetailsComponent } from './demo-details/demo-details.component';
     FormsModule,
     SharedModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

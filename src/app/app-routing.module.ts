@@ -8,6 +8,7 @@ import { DemoDetailsComponent } from './demo-details/demo-details.component';
 import { LayoutComponent } from './layout/layout.component';
 
 import { AdminGuard } from './admin.guard';
+import { DemoFormComponent } from './demo-form/demo-form.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'demodetails/:id',
     component: DemoDetailsComponent
+  },
+  {
+    path: 'demoform/new',
+    component: DemoFormComponent
   }
 ];
 

@@ -4,6 +4,8 @@
     </div>
     <div>
         {{product.description}}
+        <input [formControl]="descriptionField" type="text">
+        <button *ngIf="descriptionField.valid" (click)="saveChange()">Enviar</button>
     </div>
     <div>
         <img [src]="product.image" alt="" width="400">

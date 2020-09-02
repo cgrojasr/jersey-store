@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params} from '@angular/router'; //Tipados y Injeccion de dependencia
+import { FormControl, Validators } from '@angular/forms';
 
 import { ProductService } from '../core/services/products/product.service';
 import { Product } from './../model/product.model';
@@ -13,11 +14,23 @@ import { FnParam } from '@angular/compiler/src/output/output_ast';
 export class ProductComponent implements OnInit {
 
   product: Product;
+  descriptionField: FormControl;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService
-  ) { }
+  ) {
+    this.descriptionField = new FormControl(
+      'Hola Mundo',
+      [
+        Validators.minLength(10),
+        Validators.maxLength(20)
+      ]
+    );
+    // this.descriptionField.valueChanges.subscribe(value => {
+    //   console.log(value);
+    // });
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -57,5 +70,11 @@ export class ProductComponent implements OnInit {
       console.log(response);
       this.product = response;
     });
+  }
+
+  saveChange() {
+    if (this.descriptionField.valid) {
+      console.log(this.descriptionField.value);
+    }
   }
 }
