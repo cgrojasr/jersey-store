@@ -46,6 +46,10 @@ const routes: Routes = [
   {
     path: 'demoform/new',
     component: DemoFormComponent
+  },
+  {
+    path: 'demoform/edit/:id',
+    component: DemoFormComponent
   }
 ];
 
