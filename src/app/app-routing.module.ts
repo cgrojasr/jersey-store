@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
+import { AdminGuard } from './admin.guard';
+
 import { ProductComponent } from './product/product.component';
 import { ContactComponent } from './contact/contact.component';
 import { DemoComponent } from './demo/demo.component';
 import { DemoDetailsComponent } from './demo-details/demo-details.component';
 import { LayoutComponent } from './layout/layout.component';
-
-import { AdminGuard } from './admin.guard';
 import { DemoFormComponent } from './demo-form/demo-form.component';
+import { DemoCartComponent } from './demo-cart/demo-cart.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: 'demoform/edit/:id',
     component: DemoFormComponent
+  },
+  {
+    path: 'democart',
+    component: DemoCartComponent
   }
 ];
 

@@ -2,8 +2,11 @@
     <app-searchbar></app-searchbar>
     <div class="container">
         <div class="row">
-            <div class="col-4 offset-8">
+            <div class="col-4 offset-4">
                 <button class="btn btn-primary" [routerLink]="['../demoform/new']">New</button>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-primary" [routerLink]="['../democart']">Cart</button>
             </div>
         </div>
         <div class="row">
@@ -29,7 +32,7 @@
                     <button class="btn btn-primary" [routerLink]="['/demoform/edit', item.id]" >Update</button>
                 </div>
                 <div class="row">
-                    <button class="btn btn-primary">Add Cart</button>
+                    <button class="btn btn-primary" (click)="addCart(item.id)" >Add Cart</button>
                 </div>
             </div>
         </div>

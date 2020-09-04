@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router'; //Importar utilizar los parame
 
 import { Product } from '../model/product.model';
 import { ProductService } from '../core/services/products/product.service';
+import { CartService } from '../core/services/cart/cart.service';
 
 @Component({
   selector: 'app-demo',
@@ -11,10 +12,13 @@ import { ProductService } from '../core/services/products/product.service';
 })
 export class DemoComponent implements OnInit {
   products: Product[] = [];
+  product: Product;
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    //Se importa como un injeccion de dependencia
+    private cartService: CartService
   ) { }
 
   ngOnInit(): void {
@@ -28,5 +32,11 @@ export class DemoComponent implements OnInit {
         this.products = productsResponse
       }
     );
+  }
+
+  addCart(id: string): void {
+    this.productService.getProductById(id).subscribe((response: Product) => {
+      this.cartService.addCart(response);
+    });
   }
 }

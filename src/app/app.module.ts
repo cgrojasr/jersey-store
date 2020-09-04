@@ -15,6 +15,7 @@ import { CoreModule } from './core/core.module';
 import { ContactComponent } from './contact/contact.component';
 import { DemoDetailsComponent } from './demo-details/demo-details.component';
 import { DemoFormComponent } from './demo-form/demo-form.component';
+import { DemoCartComponent } from './demo-cart/demo-cart.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DemoFormComponent } from './demo-form/demo-form.component';
     LayoutComponent,
     ContactComponent,
     DemoDetailsComponent,
-    DemoFormComponent
+    DemoFormComponent,
+    DemoCartComponent
   ],
   imports: [
     BrowserModule,
